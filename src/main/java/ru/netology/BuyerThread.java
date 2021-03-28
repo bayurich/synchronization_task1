@@ -16,12 +16,12 @@ public class BuyerThread extends Thread {
     @Override
     public void run() {
         for (int i=1; i <= COUNT_BUYERS; i++){
+            new Thread(null, shop::buyCar, "Покупатель " + i).start();
             try {
                 Thread.sleep(TIME_BUYERS_GAP);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            new Thread(null, shop::buyCar, "Покупатель " + i).start();
         }
     }
 }

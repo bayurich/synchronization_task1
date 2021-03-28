@@ -21,9 +21,7 @@ public class Shop {
     }
 
     public void makeCar(){
-        //for (int i=1; i <=10; i++) {
-            seller.getCar();
-        //}
+        seller.getCar();
     }
 
     public List<Car> getCars() {

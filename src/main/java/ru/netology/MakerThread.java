@@ -2,7 +2,7 @@ package ru.netology;
 
 public class MakerThread extends Thread {
 
-    final int TIME_MAKERS_GAP = 5000;
+    final int TIME_MAKERS_GAP = 1000;
     final int COUNT_MAKERS = 10;
 
     Shop shop;
