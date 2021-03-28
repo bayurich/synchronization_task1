@@ -1,7 +1,5 @@
 package ru.netology;
 
-import java.util.Random;
-
 public class BuyerThread extends Thread {
 
     final int TIME_BUYERS_GAP = 2000;

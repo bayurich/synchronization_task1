@@ -3,15 +3,17 @@ package ru.netology;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ru.netology.Main.log;
+
 public class Shop {
     //  Продавец
     Seller seller = new Seller(this);
     List<Car> cars = new ArrayList<>(10);
 
     public Car buyCar(){
-        System.out.println("Покупатель '" + Thread.currentThread().getName() + "' зашел в автосалон");
+        log("Покупатель '" + Thread.currentThread().getName() + "' зашел в автосалон");
         Car car = sellCar();
-        System.out.println("Покупатель '" + Thread.currentThread().getName() + "' уехал на новеньком авто ");
+        log("Покупатель '" + Thread.currentThread().getName() + "' уехал на новеньком авто ");
 
         return car;
     }

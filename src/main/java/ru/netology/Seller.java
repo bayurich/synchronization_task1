@@ -1,5 +1,7 @@
 package ru.netology;
 
+import static ru.netology.Main.log;
+
 public class Seller {
 
     final int TIME_SELLER_PROCESSING = 2000;
@@ -14,10 +16,10 @@ public class Seller {
     public synchronized Car sellCar() {
         try{
             while (shop.getCars().size() == 0) {
-                System.out.println("Машин нет. Покупателю '" + Thread.currentThread().getName() + "' нужно подождать");
+                log("Машин нет. Покупателю '" + Thread.currentThread().getName() + "' нужно подождать");
                 wait();
             }
-            System.out.println(Thread.currentThread().getName() + " получил сигнал о наличии машины");
+            log(Thread.currentThread().getName() + " получил сигнал о наличии машины");
             Thread.sleep(TIME_SELLER_PROCESSING);
         }
         catch (InterruptedException ex){
@@ -32,7 +34,7 @@ public class Seller {
             Thread.sleep(TIME_CAR_MAKING);
             Car car = new CarToyota();
             shop.getCars().add(car);
-            System.out.println("Производитель '" + Thread.currentThread().getName() + "' выпустил 1 авто: " + car.getBrand());
+            log("Производитель '" + Thread.currentThread().getName() + "' выпустил 1 авто: " + car.getBrand());
             notifyAll();
         }
         catch (InterruptedException ex){
